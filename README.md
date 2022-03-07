@@ -70,6 +70,11 @@ The **Server-Sent Events (SSE)** implementation takes a different approach. Inst
 * https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events
 
 
+**Streaming over HTTP** is ideal for cases where we need to stream extensive data over HTTP by breaking it into smaller chunks. This is made possible with HTML5 and a JavaScript Stream API.
+* The technique is primarily used for streaming multimedia content, like large images, videos, etc., over HTTP. Empowered by this technique, we can watch a partially downloaded video as it downloads by playing the downloaded chunks on the client.
+* https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Concepts
+
+
 
 
 
