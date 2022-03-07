@@ -87,6 +87,25 @@ However, modern websites are highly dependent on AJAX. On such websites, content
 
 **Latency** is measured as the time difference between the action that a user takes on the website and the system’s response in reaction to that action. The action can be an event like clicking a button, scrolling down a web page, etc.
 
+To cut down the network latency, businesses use a CDN (Content Delivery Network) to deploy their servers across the globe as close to the end-user as possible. These close to the user locations are also known as **Edge locations.**
+
+If you intend to run the code in a distributed environment, it needs to be **stateless.** There should be no state in the code. What do I mean by this?
+
+Also, whatever data static variables hold, it’s not application-wide. For this reason, distributed memory like Redis, Memcache, etc., are used to maintain a consistent state application-wide. 
+
+Microservices Architecture
+
+![image](https://user-images.githubusercontent.com/13190696/157093854-dc8eb241-3099-4989-a939-6c40ddb23d38.png)
+
+### Primary Bottlenecks
+
+* **Database**
+* **Application Design**: For example, not using asynchronous processes. if a user uploads a document on the portal, tasks such as sending a confirmation email to the user, sending a notification to all subscribers/listeners to the upload event should be done asynchronously.Tasks like these should be forwarded to a messaging server or a task queue for asynchronous processing as opposed to being processed sequentially, making the user wait.
+* **Not using cacheing wisely**: If the system has a lot of static data, caching can bring down the deployment costs significantly.
+* **Inefficient configuration and setup of load balancers**
+* **Having business logic in databse**
+* **Not picking the correct databse**: Need transactions and strong consistency? Pick a relational database. If you can do without strong consistency rather than need horizontal scalability, pick a NoSQL database.
+* **Code-level**
 
 
 
