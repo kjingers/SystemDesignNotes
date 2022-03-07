@@ -74,6 +74,19 @@ The **Server-Sent Events (SSE)** implementation takes a different approach. Inst
 * The technique is primarily used for streaming multimedia content, like large images, videos, etc., over HTTP. Empowered by this technique, we can watch a partially downloaded video as it downloads by playing the downloaded chunks on the client.
 * https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Concepts
 
+#### Client-sdie vs Server-side Rendering
+
+The server-side rendering approach is perfect for delivering static content, such as WordPress blogs. It’s also good for SEO because the crawlers can easily read the generated content.
+
+However, modern websites are highly dependent on AJAX. On such websites, content for a particular module or a page section has to be fetched and rendered on the fly. In this use case, the server-side rendering doesn’t help much.
+* we can leverage a hybrid approach to get the best of both worlds. We can use server-side rendering for the static content of our website and client-side rendering for dynamic content.
+
+## Scalability
+
+### What is Scalability and Latency?
+
+**Latency** is measured as the time difference between the action that a user takes on the website and the system’s response in reaction to that action. The action can be an event like clicking a button, scrolling down a web page, etc.
+
 
 
 
