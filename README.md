@@ -192,7 +192,13 @@ HAProxy is one example of a software load balancer widely used by the big guns i
 
 ## Monolith and Microservices
 
+A monolithic application is a self-contained, tightly coupled software application. This is unlike the microservices architecture, where every distinct feature of an application may have one or more dedicated microservices powering it.
 
+Monolithic application is easier to build at first. But it has significant costs associated with converting to distributed microservices application. Linkedin had to do this.
+
+### Microservices
+
+![image](https://user-images.githubusercontent.com/13190696/157292467-083bc509-2173-4717-b32f-53c3aaad3ddd.png)
 
 
 
