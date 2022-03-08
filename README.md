@@ -107,12 +107,90 @@ Microservices Architecture
 * **Not picking the correct databse**: Need transactions and strong consistency? Pick a relational database. If you can do without strong consistency rather than need horizontal scalability, pick a NoSQL database.
 * **Code-level**
 
+## High Availability
 
+### Fault Tolerance
+* An elementary example of a system like this is social networking platforms. In the case of backend node failures, a few services of the app, such as image upload, post likes, etc., may stop working. However, the application as a whole will still be up. This approach technically is also known as fail soft.
 
+There are many upsides of splitting a big monolith into several microservices:
+* Easy management and maintenance
+* Ease of development
+* Ease of adding new features to a service without affecting other services
+* Scalability and high availability of the system
 
+Every microservice takes the onus of running different features of an application such as photo upload, comment system, instant messaging, groups, marketplace, etc. In this case, even if a few services go down, the other services of the application are still up.
 
+### Redundancy
 
+This instance setup approach is also known as the **Active-passive HA mode**. An initial set of nodes are active, and a set of redundant nodes are passive, on standby. Active nodes get replaced by passive nodes in case of failures.
 
+Systems should be well monitored in real-time to detect any bottlenecks or single point of failures. Automation enables the instances to self-recover without any human intervention. It gives the instances the power of self-healing.
+
+Also, the systems become intelligent enough to add or remove instances on the fly as per the requirements. **Kubernetes** is one good example of this.
+
+Since the most common cause of failures is human error, automation helps cut down failures considerably.
+
+### High AVailability Clustering
+
+A high availability cluster, also known as the fail-over cluster, contains a set of nodes running in conjunction with each other that ensures the high availability of the service. The nodes in the cluster are connected by a private network called the **heartbeat network** that continuously monitors the health and the status of each node in the cluster.
+
+A single state across all the nodes in a cluster is achieved with the help of a shared distributed memory and a distributed coordination service like the Zookeeper.
+
+## Load Balancing
+
+They can also be set up at the application component level to efficiently manage traffic directed towards any application component, be it the backend application server, database component, message queue, or any other. This is done to uniformly spread the request load across the machines in the cluster powering that particular application component.
+
+To ensure that the user request is always routed to the machine that is up and running, load balancers regularly perform health checks on the machines in the cluster.
+
+### DNS
+
+Four key components, or a group of servers, make up the DNS infrastructure. These are:
+* DNS Recursive nameserver aka DNS Resolver
+* Root nameserver
+* Top-Level Domain nameserver
+* Authoritative nameserver
+
+![image](https://user-images.githubusercontent.com/13190696/157281142-d0569859-7787-4038-a3d3-ada61fcc4341.png)
+
+DNS Process:
+* User sends hostname to DNS Resolver (Recursive Nameserver)
+* DNS Resolver routes to Root Nameserver
+* Root Nameserver returns address of Toplevel Domain Server (.com server) to the DNS Resolver
+* DNS REsolver then sends request to Toplevel Domain Server, which returns address for Authoritative Nameserver for that hostname
+* Finally, Request gets routed to authoritative server, which returns IP Address
+
+![image](https://user-images.githubusercontent.com/13190696/157282481-04096f48-ce77-4d89-ab0d-dd03a8098cfb.png)
+
+### DNS Load Balancing
+Occurs at the Authoritative Server. Instead of returning one IP address, it returns a list of IP address to multiple servers for the website. With every request, the authoritative server changes the order of the IP addresses in the list in a round-robin fashion.
+
+Also, when the client hits an IP, it may not necessarily hit an application server. Instead, it may hit another load balancer implemented at the data center level that manages the clusters of application servers.
+
+For instance, it does not take into account the current load on the servers, the content they hold, their request processing time, their in-service status, and so on.
+
+Also, since these IP addresses are cached by the client’s machine and the DNS Resolver, there is always a possibility of a request being routed to a machine that is out of service.
+
+DNS load balancing, despite its limitations, is preferred by companies because it is an easy and less expensive way of setting up load balancing on their services.
+
+### Load Balancing Methods
+
+There are primarily three modes of load balancing:
+* DNS Load Balancing
+* Hardware-based Load Balancing
+* Software-based Load Balancing
+
+Hardware-based ones are generally more proformant, but have less flexibility, harder to work with, for work to integrate. Software load-balancers are usually preferred.
+
+HAProxy is one example of a software load balancer widely used by the big guns in the industry, including GitHub, Reddit, Instagram, AWS, Tumblr, StackOverflow, to scale their systems.
+
+### Algorithms/Traffic routing approaches
+
+* **Round robin and weighted round robin**: Can give servers with more computing power a higher weight
+* **Least connections:** One approach is to simply route to server with least open connections. Another is to also consider CPU utilization/request processing time of chosen machine. THis is because the server with the least connections could be doing more intensive work. The first approach can be good for gaming, where there are generally long open connections
+* **Random**
+* **Hash:** In this approach, the source IP where the request is coming from and the request URL are hashed to route the traffic to the backend servers. Hasing the source IP ensures that requests from a given source IP are routed to the same server. THis is good becasue server already has source data in local memory. Hashing a URL ensures that the request with that URL always hits a certain cache that already has data on it. This is to ensure that there is no cache miss.
+
+## Monolith and Microservices
 
 
 
