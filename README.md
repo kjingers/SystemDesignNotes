@@ -201,9 +201,77 @@ Monolithic application is easier to build at first. But it has significant costs
 ![image](https://user-images.githubusercontent.com/13190696/157292467-083bc509-2173-4717-b32f-53c3aaad3ddd.png)
 
 
+Every microservice interacts with each other via a REST API gateway interface. A system with microservices can leverage the polyglot persistence architecture and other heterogeneous technologies like Java, Python, Ruby, NodeJS, etc.
+
+Polyglot persistence uses multiple database types, like SQL and NoSQL, together in the architecture. We will discuss this in detail in the database lesson.
+
+**Microservices Challenges:**
+
+* Complex system management. We need to set up additional components to manage microservices, such as a node manager like Apache Zookeeper, a distributed tracing service for monitoring the nodes, etc
+* Sometimes, strong consistency is hard to guarantee in a distributed environment, especially when trying to achieve a single consistent state across several microservices.
+
+**When to use Microservices architecture**
+* A typical social networking application has various components such as messaging, real-time chat, LIVE video streaming, photo uploads, post like and share features, etc.
+* This use case fits best for a microservices architecture. Also, the microservices architecture enables a business move fast. A business can separately develop, test, deploy an application feature without affecting the current features. There is not much need for regression testing and so on.
 
 
+So, by now, we have seen three ways to proceed with the design of our application:
 
+* Picking a monolithic architecture
+* Picking a microservice architecture
+* Starting with a monolithic architecture and later scaling out into a microservice architecture.
+
+**Why Microservices Architecture**:
+* Fault isolation
+* Development TEam Automony
+
+**Cons of Microservices**:
+* Increased management over due to architechture complexity
+* For example, company Segment went from moonolithic -> microservices -> back to monolithic, since system became too complex.
+* https://segment.com/blog/goodbye-microservices/
+* https://blog.christianposta.com/microservices/istio-as-an-example-of-when-not-to-do-microservices/
+
+## Micro Frontends
+**Micro frontends** are distinct loosely coupled components of an application’s user interface developed applying the concept of microservices to the frontend.
+
+Normally, even if system uses microservices on the backend, the frontend is a monolith:
+
+![image](https://user-images.githubusercontent.com/13190696/157506628-d0efb4f7-3e1e-496e-84a1-9ddcc442e188.png)
+
+With the micro frontends approach, we split our application into vertical slices, where a single slice goes end to end right from the user interface to the database. And every slice is owned by a dedicated team.
+
+![image](https://user-images.githubusercontent.com/13190696/157506705-1c446a6a-60ad-4968-99f8-5de7583ce92f.png)
+
+Micro Frontends are popular with e-commerce websites
+
+**Example - Online Game Store:**
+
+Our online gaming store will have several different UI components. A few of the key components would be:
+* The Search Component
+* Add to cart and checkout component
+* The payment component
+* The game category component
+
+The smaller components that integrate into other pages/components of the application are known as fragments.
+![image](https://user-images.githubusercontent.com/13190696/157508984-338f8495-a26d-495a-a5fc-2b404ef2bc72.png)
+
+**Benefits of Micro FrontEnds**
+* Easier coordination between the frontend and the backend devs
+* Can use different technologies for different components. If we want to use Vue for a component, we don't have to rewrite everything.
+* Best fit for medium to large websites
+
+![image](https://user-images.githubusercontent.com/13190696/157509555-7445d7a8-2457-4469-b569-8850a817446b.png)
+
+https://engineering.atspotify.com/2014/03/spotify-engineering-culture-part-1/
+
+
+### Integrating MIcro Frontends
+
+Once we have respective micro frontends ready for our online game store, we need to integrate them together to have a functional website. There are two ways we can do this:
+1. By integrating micro frontends on the client
+2. By integrating micro frontends on the server
+
+Similar to client-side vs server-side rendering
 
 
 
