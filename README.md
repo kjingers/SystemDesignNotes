@@ -273,5 +273,90 @@ Once we have respective micro frontends ready for our online game store, we need
 
 Similar to client-side vs server-side rendering
 
+#### Client-side
+
+**Links**
+* Each micro frontend has a unique link.
+* Ex, when in checkout page, you are on checkout frontend. When you clink link to payment frontend, the url changes and you are using payment frontend
+
+**Within same page**
+* Also, following this basic approach, the micro frontends that need to be integrated within a specific page can be done using Iframes.
+
+* Using Links and Iframes is not recommended. Bad for SEO. They can't be bookmarked. Stability and performance issues.
+
+A recommended way to integrate components on the client-side is by leveraging a technology called the Web Components and frameworks such as Single SPA.
+Single SPA is a JavaScript framework for frontend microservices that enables developers to build their frontend while leveraging different JavaScript frameworks.
+
+#### Server-side
+When the UI components are integrated on the server, on the user request, the complete pre-built page of the website is delivered to the client from the server as opposed to sending individual micro frontends to the client and having them clubbed there.
+
+ome of the popular frameworks that facilitate server-side integration of micro frontends are:
+* Project Mosaic
+* Open Components
+* Podium
+
+Zolando Company uses Project Mosaic: https://www.youtube.com/watch?v=m32EdvitXy4
+
+## Database
+
+A database is a component in application architecture required to persist data. Data can be of many forms: structured, unstructured, semi-structured, and user state data.
+
+### Types of Data
+
+* **Structured data** is the type of data that conforms to a certain structure, typically stored in a database in a normalized fashion. Structured data is typically managed by a query language such as SQL (Structured query language).
+* **Unstructured Data**: Unstructured data has no definite structure. It is the heterogeneous type of data consisting of text, image files, videos, multimedia files, pdfs, blob objects, word documents, machine-generated data, etc. We cannot directly interact with unstructured data. The initial data collected is pretty raw. We have to make it flow through a data preparation stage that segregates it based on business logic and then analytics algorithms are run to extract meaningful information.
+
+![image](https://user-images.githubusercontent.com/13190696/157513314-4f6bd274-6190-4967-8194-351a71134a0c.png)
+
+* **Semi-structured Data**: Semi-structured data is a mix of structured and unstructured data. This data is often stored in data transport formats such as XML, JSON and handled as per the business requirements.
+* **User-state Data**: User state data is the data containing the information of activity the user performs on the website.
+
+### Relational Database
+
+A **relational database** persists data containing relationships: one to one, one to many, many to many, many to one, etc. It is the most widely used type of database in web development.
+
+Relational databases have a relational data model, data is organized in tables having rows and columns and SQL is the primary data query language used to interact with relational databases.
+
+MySQL is an example of a relational database.
+
+**Example:** Imagine you buy five different books from an online bookstore. When you create an account at the bookstore, the system will assign you a customer id say C1. Now, C1 will be linked to five different books B1, B2, B3, B4, and B5. This is a **one-to-many relationship**. In the simplest of forms, one database table will contain the details of all the customers and another table will contain all the products in the inventory.One row in the customer table will correspond to multiple rows in the product inventory table. Upon pulling the user object with the id C1 from the database, we can easily find what books C1 purchased via the relationship model.
+
+Besides the relationships, relational databases also ensure saving data in a **normalized fashion**. In very simple terms, normalized data means an entity occurs in only one place/table in its simplest and atomic form and is not spread throughout the database.
+
+Besides normalization and consistency, relational databases also ensure **ACID transactions.** ACID stands for atomicity, consistency, isolation and durability.
+
+Fabebook uses relational database: https://www.scaleyourapp.com/what-database-does-facebook-use-a-1000-feet-deep-dive/
+
+**Populat Relational Databases**
+* MySQL, an open-source relationship database written in C and C++, has been around since 1995
+* PostgreSQL, an open-source RDBMS written in C.
+* Microsoft SQL Server, a proprietary RDBMS written by Microsoft in C and C++.
+* MariaDB, Amazon Aurora, Google Cloud SQL, etc.
+
+### NoSQL Databases
+
+As the name implies, NoSQL databases have no SQL; they are more like JSON-based databases built for Web 2.0.
+
+Some of the popular NoSQL databases used in the industry are MongoDB, Redis, Neo4J, Cassandra, Memcache, etc.
+
+* NoSQL databases are built for high-frequency read writes, typically required in social applications like micro-blogging, real-time sports apps, online massive multiplayer games, and so on.
+* Are **Scalable**. Can add new server nodes on the fly. Relational databases require sharding and replication.
+* Run intelligently on clusters (minimal human intervention).
+* The data with NoSQL databases is more eventually consistent as opposed to being strongly consistent.
+
+#### NoSQL Pros
+
+Learning Curve Not so steep
+* With relational, we need to be very focused on designing the schema to minimize joins and aboid issues.
+* NoSQL has not strictly enforced schemas
+* No/limited relationships
+
+#### NoSQL Cons
+* Since data is not normalized, there is risk of inconsistent data
+* No support for ACID transactions. Claims often have limitations and stipulations
+
+
+
+
 
 
