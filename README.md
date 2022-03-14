@@ -370,6 +370,14 @@ Some of the popular wide-column databases are **Cassandra, HBase, Google BigTabl
 * Netflix uses Cassandra in the analytics infrastructure.
 * Adobe and other big guns use HBase for processing large amounts of data.
 
+## Caching
+
+Strategies:
+
+* Cache Aside: Most common. Good for read heavy. Data has TTL
+* Read-though: Similar to above, except data alyways stays consistent with database. The cache framework takes onus of maintaining consistency.
+* Write-through: Every write goes through the cache before updating the database. Adds latency to write operations. Good for needing strict data consistency between cache and DB.
+* Write-back: Data is directly written to the cache instead of the database, and the cache, after some delay, as per the business logic, writes data to the database.
 
 
 
