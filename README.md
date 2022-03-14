@@ -355,6 +355,14 @@ Learning Curve Not so steep
 * Since data is not normalized, there is risk of inconsistent data
 * No support for ACID transactions. Claims often have limitations and stipulations
 
+### Time Series DB
+
+Some of the popular time-series databases used in the industry are **Influx DB, Timescale DB, Prometheus, etc.**
+
+Examples:
+* IBM uses Influx DB to run analytics for real-time cognitive fraud detection.
+* Spiio uses Influx DB to remotely monitor vertical lining green walls and plant installations.
+
 
 
 
