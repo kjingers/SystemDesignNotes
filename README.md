@@ -363,6 +363,15 @@ Examples:
 * IBM uses Influx DB to run analytics for real-time cognitive fraud detection.
 * Spiio uses Influx DB to remotely monitor vertical lining green walls and plant installations.
 
+### Wide-Column Databases
+
+Some of the popular wide-column databases are **Cassandra, HBase, Google BigTable, ScyllaDB, etc.**
+
+* Netflix uses Cassandra in the analytics infrastructure.
+* Adobe and other big guns use HBase for processing large amounts of data.
+
+
+
 
 
 
