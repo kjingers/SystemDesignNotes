@@ -389,7 +389,72 @@ Message queues facilitate asynchronous behavior.  Asynchronous behavior allows t
 * https://www.scaleyourapp.com/linkedin-real-time-architecture-how-does-linkedin-identify-its-users-online/
 * https://engineering.fb.com/2015/12/03/ios/under-the-hood-broadcasting-live-video-to-millions/
 
+## Stream Processing
 
+### Data Ingestion
+
+Lambda and Kappa architectures of data processing.
+
+There are several stages/layers to this whole data processing setup, such as the:
+
+* Data collection layer
+* Data query layer
+* Data processing layer
+* Data visualization layer: **Kibana** is one good example of a data visualization tool widely used in the industry.
+* Data storage layer
+* Data security layer
+
+### Data Ingestion Use Cases
+* Moving Big Data into Hadoop: Most popular - Big Data from IoT devices, social apps, and other sources streams through data pipelines into Hadoop for analysis.
+* Streaming data from databases to Elasticsearch server: 
+* Log processing: All the logs are ingested to a central server to run analytics with the help of solutions like the ELK (Elastic Logstash Kibana) stack, etc.
+* Stream processing engines for real-time events: Message queues like Kafka and stream computation frameworks like Apache Storm, Apache Nifi, Apache Spark, Samza, Kinesis, etc., are used to implement the real-time large-scale data processing features in online applications. https://netflixtechblog.com/keystone-real-time-stream-processing-platform-a3ee651812a
+
+### What's ETL?
+If you haven’t heard of ETL before, it means Extract Transform Load.
+
+* Extract means fetching data from single or multiple data sources.
+* Transform means transforming the extracted heterogeneous data into a standardized format based on the rules set by the business.
+* Load means moving the transformed data to a data warehouse or another data storage location for further processing of data.
+
+The ETL flow is the same as the data ingestion flow. The difference is just that the entire movement of data is done in batches as opposed to streaming it through the data pipelines in real-time.
+
+### Ditributed Data Processing
+
+Distributed-data processing means diverging large amounts of data to several nodes running in a cluster for parallel processing.
+
+All the nodes in the cluster execute the task allotted parallelly, working in conjunction coordinated by a node-coordinator. **Apache Zookeeper** is one example of a node coordinator widely used in the industry.
+
+![image](https://user-images.githubusercontent.com/13190696/158217685-d5d7c5ad-1785-4619-a710-dc6a897978c1.png)
+
+Distributed Data Processing Technologies:
+* MapReduce – Apache Hadoop: The most popular open-source implementation of the MapReduce programming model is Apache Hadoop.
+* Apache Spark: Spark seamlessly integrates with distributed data stores like Cassandra, HDFS, MapReduce File System, Amazon S3, etc.
+* Apache Storm: In the industry, it is primarily used for processing massive amounts of streaming data.
+* Apache Kafka: Kafka is used to develop real-time features such as notification platforms, managing streams of massive amounts of data, monitoring website activity and metrics, messaging, and log aggregation.
+
+Hadoop is preferred for batch data processing, whereas Spark, Kafka, and Storm are the right pick for processing real-time streaming data.
+
+### Lambda
+Lambda is a distributed data processing architecture that leverages both the batch and the real-time streaming data processing approaches to tackle the latency issues that arise out of the batch processing approach.
+
+![image](https://user-images.githubusercontent.com/13190696/158219685-ff2b6c8b-20f6-45b7-b5c3-d4100eb66553.png)
+
+The architecture has typically three layers:
+* Batch layer
+* Speed layer
+* Serving layer
+
+### Kappa
+In Kappa architecture, all the data flows through a single data streaming pipeline in contrast to the Lambda architecture, which has different data streaming layers that converge into one.
+
+![image](https://user-images.githubusercontent.com/13190696/158219579-be90c39c-5007-4696-8813-5e5718d72c4a.png)
+
+Kappa is preferred if the batch and the streaming analytics results are fairly identical in a system. Lambda is preferred if they are not.
+
+## More On Architecture
+
+### Event-Driven Architecture
 
 
 
