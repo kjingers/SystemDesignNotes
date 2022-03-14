@@ -379,7 +379,15 @@ Strategies:
 * Write-through: Every write goes through the cache before updating the database. Adds latency to write operations. Good for needing strict data consistency between cache and DB.
 * Write-back: Data is directly written to the cache instead of the database, and the cache, after some delay, as per the business logic, writes data to the database.
 
+## Message Queues
 
+Message queues facilitate asynchronous behavior.  Asynchronous behavior allows the modules to communicate in the background without hindering their primary tasks.
+
+* **Publish-subscribe:** There are different types of exchanges available in message queues, some of which are: direct, topic, headers, and fanout. The fanout exchange will fit best for implementing a pub-sub pattern. It will push the messages to the queue and the consumers will receive the message broadcast. The relationship between the exchange and the queue is known as binding.
+* **Point-to-Point:** In a point-to-point model, a message from the producer is consumed by only one consumer. There are two popular protocols when working with message queues: AMQP Advanced Message Queue Protocol and STOMP Simple or Streaming Text Oriented Message Protocol. Every messaging technology, RabbitMQ, ActiveMQ, Apache Kafka, will have its own implementations of these protocols.
+
+* https://www.scaleyourapp.com/linkedin-real-time-architecture-how-does-linkedin-identify-its-users-online/
+* https://engineering.fb.com/2015/12/03/ios/under-the-hood-broadcasting-live-video-to-millions/
 
 
 
