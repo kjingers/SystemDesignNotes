@@ -456,5 +456,35 @@ Kappa is preferred if the batch and the streaming analytics results are fairly i
 
 ### Event-Driven Architecture
 
+Non-blocking architecture is also known as reactive or event-driven architecture. Event-driven architectures are pretty popular in modern web application development.
+
+![image](https://user-images.githubusercontent.com/13190696/158377818-a5902bb0-730d-4ba9-993f-a7572f2141bf.png)
+
+* In an event-driven system, everything is treated as a stream. The level of abstraction is good, and developers don’t have to worry about managing the low-level memory stuff.
+
+### Webhooks
+Webhooks are more like call-backs. It’s like, “I will call you when new information is available. You carry on with your work.”. So applications don't havene to repeatedly poll.
+
+To use the Webhooks, consumers register an HTTP endpoint with the service with a unique API Key. It’s like a phone number. Call me on this number when an event occurs. I won’t be calling you anymore.
+
+Whenever new information is available on the backend, the server fires an HTTP event to all the registered endpoints of the consumers, notifying them of the latest update.
+
+### Hexagonal Achitecture
+
+The hexagonal architecture consists of three key components:
+* Ports
+* Adapters
+* Domain
+
+## Picking the Right Technology
+
+* Real-time data interaction: NodeJS, Python’s Tornado framework. If you are working in the Java ecosystem, you can look into Spring Reactor, Play, and Akka.
+* Peer-to-peer web application
+* CRUD-based regular application:  Spring MVC, Python Django, Ruby on Rails, PHP Laravel, and ASP .NET MVC.
+* CPU and memory intensive applications: C++, Rust. Java, Scala, and Erlang. Elasticsearch is an open-source real-time search and analytics engine is written in Java. Go is a programming language by Google to write apps for multi-core machines handling a large amount of data.
+
+
+
+
 
 
