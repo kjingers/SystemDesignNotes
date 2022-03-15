@@ -484,6 +484,11 @@ The hexagonal architecture consists of three key components:
 * CPU and memory intensive applications: C++, Rust. Java, Scala, and Erlang. Elasticsearch is an open-source real-time search and analytics engine is written in Java. Go is a programming language by Google to write apps for multi-core machines handling a large amount of data.
 
 
+# Microservices
+
+## Micro and Macro Services
+
+
 
 
 
